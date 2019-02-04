@@ -34,7 +34,6 @@ module.exports = (api, options, rootOptions) => {
 
     // Read the file.
     let contentMain = fs.readFileSync(mainPath, { encoding: 'utf-8' });
-    const lines = contentMain.split(/\r?\n/g).reverse();
 
     // Check we have Contentservice installed
     if (contentMain.indexOf(`from 'vue-contentservice'`) < 0) {
@@ -48,13 +47,26 @@ module.exports = (api, options, rootOptions) => {
 
 console.log(`Life is good`);
 
-    // // Add our import code after the last import statement
-    // const lastImportIndex = lines.findIndex(line => line.match(/^import/));
-    // lines[lastImportIndex] += initializationCode;
-    //
-    // // Write the file back.
-    // contentMain = lines.reverse().join('\n');
-    // fs.writeFileSync(mainPath, contentMain, { encoding: 'utf-8' });
+    // Initialize Formservice before Instantiating the App.
+    let pos = contentMain.indexOf(`\nnew Vue({`)
+    if (pos < 0) {
+      console.log(`Cannot find 'new Vue(...)' in main.${ext}`);
+      console.log(`Install did not succeed.`);
+      return
+    }
+    let before = contentMain.substring(0, pos)
+    let after = contentMain(pos)
+    contentMain = before + initializationCode + after
+
+
+    // Add our import code after the last import statement
+    const lines = contentMain.split(/\r?\n/g).reverse();
+    const lastImportIndex = lines.findIndex(line => line.match(/^import/));
+    lines[lastImportIndex] += initializationCode;
+
+    // Write the file back.
+    contentMain = lines.reverse().join('\n');
+    fs.writeFileSync(mainPath, contentMain, { encoding: 'utf-8' });
   });
 
 }
