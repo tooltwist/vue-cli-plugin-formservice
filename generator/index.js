@@ -14,13 +14,9 @@ module.exports = (api, options, rootOptions) => {
   /*
    *  Update main.js or main.ts
    */
-  a
-  let importCode = `
-import FormService from 'vue-formservice';
-`
+  let importCode = `\nimport FormService from 'vue-formservice';\n`
 
-  let initializationCode = `
-Vue.use(FormService, { });`
+  let initializationCode = `\nVue.use(FormService, { });\n`
 
   api.onCreateComplete(() => {
 
