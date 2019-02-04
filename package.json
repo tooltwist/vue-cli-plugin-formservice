@@ -1,0 +1,22 @@
+{
+  "name": "vue-cli-plugin-contentservice",
+  "version": "0.0.5",
+  "description": "Vue-cli 3 plugin for adding CMS functionality to project using contentservice.io",
+  "main": "index.js",
+  "scripts": {
+    "patch-release": "npm version patch && npm publish --registry=https://registry.npmjs.org/ && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooltwist/vue-cli-plugin-contentservice.git"
+  },
+  "keywords": [
+    "vue",
+    "vue-cli",
+    "contentservice",
+    "tooltwist"
+  ],
+  "author": "Philip Callender <philip.callender@tooltwist.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tooltwist/vue-cli-plugin-contentservice#readme"
+}
