@@ -55,7 +55,7 @@ console.log(`Life is good`);
       return
     }
     let before = contentMain.substring(0, pos)
-    let after = contentMain(pos)
+    let after = contentMain.substring(pos)
     contentMain = before + initializationCode + after
 
 
