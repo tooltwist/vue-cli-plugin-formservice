@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-contentservice",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Vue-cli 3 plugin for adding CMS functionality to project using contentservice.io",
   "main": "index.js",
   "scripts": {
