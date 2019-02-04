@@ -62,7 +62,7 @@ console.log(`Life is good`);
     // Add our import code after the last import statement
     const lines = contentMain.split(/\r?\n/g).reverse();
     const lastImportIndex = lines.findIndex(line => line.match(/^import/));
-    lines[lastImportIndex] += initializationCode;
+    lines[lastImportIndex] += importCode;
 
     // Write the file back.
     contentMain = lines.reverse().join('\n');
